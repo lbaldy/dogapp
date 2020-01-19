@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, FlatList, Dimensions} from 'react-native';
+import {View, Image, FlatList, Dimensions} from 'react-native';
 import axios from 'axios';
+import PlainText from '../components/PlainText';
 
 const DogPage = ({navigation}) => {
   const [images, setImages] = useState([]);
@@ -31,7 +32,7 @@ const DogPage = ({navigation}) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 1, padding: 10}}>
+      <View style={{flex: 1}}>
         <FlatList
           snapToAlignment={'left'}
           snapToInterval={width}
@@ -57,10 +58,14 @@ const DogPage = ({navigation}) => {
         />
       </View>
       <View style={{flex: 1, padding: 10}}>
-        <Text>{desc}</Text>
+        <PlainText text={desc} />
       </View>
     </View>
   );
 };
+
+DogPage.navigationOptions = screenProps => ({
+  title: screenProps.navigation.getParam('breed'),
+});
 
 export default DogPage;

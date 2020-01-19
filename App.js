@@ -1,5 +1,3 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import HomePage from './src/pages/HomePage';
